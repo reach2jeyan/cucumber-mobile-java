@@ -1,0 +1,1237 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>ExtentReports</title>
+	<meta name="description" content="extent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="extent">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/logger/css/logger-style.css" type="text/css" />
+</head>
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+	<body class="">
+		<div class="app" id="app">
+<div id="aside" class="app-aside fade box-shadow-x folded dark">
+	<div class="sidenav modal-dialog dk">
+		<div class="navbar">
+			<a href="#" class="navbar-brand">
+			<span class="d-inline small"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></span>
+			</a>
+		</div>
+		<div class="flex hide-scroll">
+			<div class="scroll">
+				<div class="nav-border b-primary">
+					<ul class="nav bg">
+						<li>
+							<a href="index.html">
+							<span class="nav-icon">
+							<i class="fa fa-align-left"></i>
+							</span>
+							<span class="nav-text">Tests</span>
+							</a>
+						</li>
+												<li>
+							<a href="exception.html">
+							<span class="nav-icon">
+							<i class="fa fa-warning"></i>
+							</span>
+							<span class="nav-text">Exceptions</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard.html">
+							<span class="nav-icon">
+							<i class="fa fa-dashboard"></i>
+							</span>
+							<span class="nav-text">Dashboard</span>
+							</a>
+						</li>
+						<li class="pb-2 hidden-folded"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="no-shrink">
+			<div class="nav-fold">
+				<a id="lightsout" class="d-flex p-2-3"><span><i class="fa fa-desktop"></i></span></a>
+				<div class="hidden-folded flex p-2-3 bg">
+					<div class="d-flex p-1">
+						<a href="http://github.com/extent-framework/extentreports" class="flex text-nowrap"><i class="fa fa-github"></i></a>
+						<a href="http://extentreports.com" class="px-2"><i class="fa fa-book"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>			<div id="content" class="app-content box-shadow-0" role="main">
+				<div id="content" class="app-content box-shadow-2 box-radius-2" role="main">
+					<div class="content-header white  box-shadow-2" id="content-header">
+						<div class="navbar navbar-expand-lg">
+							<div class="input-group flex mr-1">
+				              	<input id="qt" type="text" class="form-control px-0 no-bg no-border no-shadow search" placeholder="Search..." required="">
+				              	<span class="input-group-btn">
+				                	<button class="btn no-bg no-border no-shadow" type="button"><i class="fa fa-search text-muted text-xs"></i></button>
+				              	</span>
+				            </div>
+							<ul class="nav nav-xs flex-row no-border pull-right">
+								<li class="nav-item dropdown">
+									<a class="nav-link b-l" data-toggle="dropdown">
+									<span class="text-xs">
+									<i class="fa fa-warning"></i>
+									<i class="fa fa-caret-down"></i>
+									</span>
+									</a>
+									<div class="dropdown-menu pt-0 mt-2 animate fadeIn">
+										<a class="dropdown-item" href="#"><span class="tf" status="pass"><i class="fa fa-dot-circle-o text-success"></i>Pass</span></a>
+										<a class="dropdown-item" href="#"><span class="tf" status="fail"><i class="fa fa-dot-circle-o text-danger"></i>Fail</span></a>
+										
+										
+										
+										<a class="dropdown-item" href="#"><span class="tf" status="skip"><i class="fa fa-dot-circle-o text-blue"></i>Skip</span></a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#"><span class="tf" status="clear"><i class="fa fa-dot-circle-o text-warn"></i>Clear</span></a>
+									</div>
+								</li>
+						        <li class="nav-item lightsout"><a class="nav-link b-l" href="#"><span><i class="fa fa-desktop"></i></span></a></li>
+								<li><a href="#" class="b-l"><span class="badge badge-pull">ExtentReports</span></a></li>
+								<li><a href="#" class="b-l"><span class="badge badge-pull">4.0</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="content-main " id="content-main">
+						<div class="padding">
+							<div class="row justify-content-md-center">
+								<div class="col-md-8 col-sm-12">
+									<div class="logger-content">
+										<h6 class="mb-3 ml-1">Test Logs</h6>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:08:54</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Web Config] started</span>
+												
+											</div>
+											<div class="st pass test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:08:54</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify user cannot enter the sign in page on entering wrong server details] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:08:54</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I verify if SignIn button is disabled] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:13</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I verify if SignIn button is disabled]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:13</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then BT app is pointed to the server "https://mobile-nowa"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:30</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then BT app is pointed to the server "https://mobile-nowa"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:30</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I hide the keyboard] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:30</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I hide the keyboard]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:30</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I verify if SignIn button is enabled] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:30</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I verify if SignIn button is enabled]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:30</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:31</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:31</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:32</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:32</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "InstructionalLabelTexterror"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:32</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "InstructionalLabelTexterror"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:32</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify user is able to proceed to sign in page on entering write server details] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:32</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then BT app is pointed to the server "https://mobile-nowaf.qa.iqgenhosp.com/"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:51</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then BT app is pointed to the server "https://mobile-nowaf.qa.iqgenhosp.com/"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:51</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I hide the keyboard] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:51</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I hide the keyboard]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:51</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I verify if SignIn button is enabled] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:51</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I verify if SignIn button is enabled]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:51</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:52</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:52</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:09:52</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then element with id "Button-Submit" is clicked]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:09:52</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "sushbt" is entered in the identifier with id "TextInput-UserName"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:00</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "sushbt" is entered in the identifier with id "TextInput-UserName"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:00</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Login] started</span>
+												
+											</div>
+											<div class="st pass test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:00</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify user can react the MyJobs section only with valid credentials] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:00</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "sushbt" is entered in the identifier with id "TextInput-UserName"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:06</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "sushbt" is entered in the identifier with id "TextInput-UserName"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:06</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And text "Pass@12" is entered in the identifier with id "TextInput-Password"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:19</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And text "Pass@12" is entered in the identifier with id "TextInput-Password"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:19</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I hide the keyboard] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:19</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I hide the keyboard]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:19</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:19</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:19</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:20</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:20</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "InstructionalLabelTexterror"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:22</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "InstructionalLabelTexterror"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:22</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And text "Pass@123" is entered in the identifier with id "TextInput-Password"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:34</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And text "Pass@123" is entered in the identifier with id "TextInput-Password"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:34</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I hide the keyboard] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:34</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I hide the keyboard]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:34</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:35</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:35</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:36</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignIn"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:36</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Navigation-Messages"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:42</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Navigation-Messages"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="fail">
+											<div class="st fail test l0" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:42</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">[Bed Search] started</span>
+												
+											</div>
+											<div class="st pass test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:42</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify after login Job search is the default page launched] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:42</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:42</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:42</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify user is shown invalid bed on invalid bed id input and can clear content using clear button] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:42</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:45</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:45</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "999" is entered in the identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:50</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "999" is entered in the identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:50</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then value should match "999" for the identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:51</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then value should match "999" for the identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:51</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I click on done button] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:51</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I click on done button]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:51</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I assert for the element with id "MessageBox-error"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:52</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I assert for the element with id "MessageBox-error"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:52</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "SearchInputClearIcon-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:52</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "SearchInputClearIcon-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:52</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then value should match "Enter Bed ID" for the identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:53</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then value should match "Enter Bed ID" for the identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st fail test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:53</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify user sees Job card on entering the valid bed id and navigates back to bed search on tapping Cancel] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:53</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:10:54</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:10:54</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "32091" is entered in the identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:11:00</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "32091" is entered in the identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:00</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I click on done button] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:11:01</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I click on done button]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st fail test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:01</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Button-Cancel"] started</span>
+												
+												<div class="st fail">
+													<span class="tt">01.03.2019 19:11:31</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Button-Cancel"]</span>
+													
+													<span class="td">threw an exception<br><textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Teletrackings-MacBook-Pro.local', ip: 'fe80:0:0:0:897:655f:764c:6527%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14', java.version: '11.0.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {Version: 6.0, app: /Users/teletracking/Desktop..., appActivity: com.teletracking.bedtrackin..., appPackage: com.teletracking.bedtracking, appWaitActivity: com.teletracking.bedtrackin..., appWaitPackage: com.teletracking.bedtracking, databaseEnabled: false, desired: {Version: 6.0, app: /Users/teletracking/Desktop..., deviceName: Nexus, fullReset: false, noReset: true, platformName: android, url: https://0.0.0.0:4723/wd/hub}, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenSize: 1440x2560, deviceUDID: emulator-5554, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: Android, platformVersion: 8.1.0, takesScreenshot: true, url: https://0.0.0.0:4723/wd/hub, warnings: {}, webStorageEnabled: false}
+Session ID: df9af3cd-a604-4a9f-906f-f53c1bd8ed9f
+*** Element info: {Using=id, value=Button-Cancel}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:231)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:70)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at stepdefs.Demo.iAssertForTheElementWithId(Demo.java:94)
+	at ✽.I assert for the element with id "Button-Cancel"(src/test/resources/features/3BedSearch.feature:19)
+</textarea></span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:31</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-Cancel"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:11:31</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-Cancel"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:31</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:11:31</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+												<div class="st info">
+													<span class="tt">01.03.2019 19:11:33</span>&nbsp;
+													<span class="ts">info</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"]</span>
+													<span class="tm"><a href='#' class='indigo badge' data-featherlight='/Users/teletracking/Desktop/mobiledemoautomation/test-output/embedded1.png'>img</a></span>
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st fail test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:33</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify user can search for dirty valid bed and mark complete status] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:33</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:11:33</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:33</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "32091" is entered in the identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:11:41</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When text "32091" is entered in the identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:41</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then value should match "32091" for the identifier with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:11:42</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then value should match "32091" for the identifier with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:42</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I click on done button] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:11:42</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I click on done button]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st fail test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:11:42</span>&nbsp;
+												<span class="ts">fail</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "Button-GoInProgress"] started</span>
+												
+												<div class="st fail">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">fail</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "Button-GoInProgress"]</span>
+													
+													<span class="td">threw an exception<br><textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Teletrackings-MacBook-Pro.local', ip: 'fe80:0:0:0:897:655f:764c:6527%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14', java.version: '11.0.1'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {Version: 6.0, app: /Users/teletracking/Desktop..., appActivity: com.teletracking.bedtrackin..., appPackage: com.teletracking.bedtracking, appWaitActivity: com.teletracking.bedtrackin..., appWaitPackage: com.teletracking.bedtracking, databaseEnabled: false, desired: {Version: 6.0, app: /Users/teletracking/Desktop..., deviceName: Nexus, fullReset: false, noReset: true, platformName: android, url: https://0.0.0.0:4723/wd/hub}, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenSize: 1440x2560, deviceUDID: emulator-5554, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: Android, platformVersion: 8.1.0, takesScreenshot: true, url: https://0.0.0.0:4723/wd/hub, warnings: {}, webStorageEnabled: false}
+Session ID: df9af3cd-a604-4a9f-906f-f53c1bd8ed9f
+*** Element info: {Using=id, value=Button-GoInProgress}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:231)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:70)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at stepdefs.Demo.iTapOnIdentifierWithId(Demo.java:22)
+	at ✽.I tap on identifier with id "Button-GoInProgress"(src/test/resources/features/3BedSearch.feature:29)
+</textarea></span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And value should match "Go In Progress?" for the identifier with id "alertTitle"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And value should match "Go In Progress?" for the identifier with id "alertTitle"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "button2"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "button2"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Button-GoInProgress"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Button-GoInProgress"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-GoInProgress"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-GoInProgress"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "button1"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "button1"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I assert for the element with id "Button-CompleteJob"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I assert for the element with id "Button-CompleteJob"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "Button-CompleteJob"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I tap on identifier with id "Button-CompleteJob"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "button2"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "button2"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Button-CompleteJob"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "Button-CompleteJob"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-CompleteJob"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-CompleteJob"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I tap on identifier with id "button1"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I tap on identifier with id "button1"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+											</div>
+											<div class="st skip test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+												<span class="ts">skip</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"] started</span>
+												
+												<div class="st skip">
+													<span class="tt">01.03.2019 19:12:13</span>&nbsp;
+													<span class="ts">skip</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"]</span>
+													
+													<span class="td">Step skipped</span>
+												</div>
+												<div class="st info">
+													<span class="tt">01.03.2019 19:12:14</span>&nbsp;
+													<span class="ts">info</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "TextInput-BTJobSearch"]</span>
+													<span class="tm"><a href='#' class='indigo badge' data-featherlight='/Users/teletracking/Desktop/mobiledemoautomation/test-output/embedded2.png'>img</a></span>
+													<span class="td"></span>
+												</div>
+											</div>
+											</div>
+											<div class="tsc" status="pass">
+											<div class="st pass test l0" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:14</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">[Logout] started</span>
+												
+											</div>
+											<div class="st pass test l1" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:14</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">|---[Verify user is not logged out on clicking cancel in the alert message and logged out on clicking yes] started</span>
+												
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:14</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I assert for the element with id "Navigation-Settings"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:12:14</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I assert for the element with id "Navigation-Settings"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:14</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Navigation-Settings"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:12:15</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Navigation-Settings"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:15</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I assert for the element with id "Button-SignOut"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:12:16</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[When I assert for the element with id "Button-SignOut"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:16</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignOut"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:12:19</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "Button-SignOut"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:19</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "alertTitle"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:12:19</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I assert for the element with id "alertTitle"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:19</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "button1"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:12:20</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[And I tap on identifier with id "button1"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											<div class="st pass test l2" 
+												tags=""
+												devices="">
+												<span class="tt">01.03.2019 19:12:20</span>&nbsp;
+												<span class="ts">pass</span>&nbsp;&nbsp;
+												<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I tap on identifier with id "Button-SignIn"] started</span>
+												
+												<div class="st pass">
+													<span class="tt">01.03.2019 19:12:23</span>&nbsp;
+													<span class="ts">pass</span>&nbsp;&nbsp; 
+													<span class="tn">&nbsp;&nbsp;&nbsp;&nbsp;|---[Then I tap on identifier with id "Button-SignIn"]</span>
+													
+													<span class="td"></span>
+												</div>
+											</div>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/logger/js/logger-scripts.js"></script>
+	</body>
+</html>
